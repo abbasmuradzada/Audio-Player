@@ -18,7 +18,12 @@
             <ul>
                 <li>Play List</li>
                 <li>Favorite</li>
-                <li>Subscribe</li>
+                <li>
+                    <select class="select" name="" id="">
+                        <option value="next play">Next Play</option>
+                        <option value="Shuffle">Shuffle</option>
+                    </select>
+                </li>
             </ul>
         </nav>   
         <button class="btn prev">
@@ -27,6 +32,9 @@
         <button class="btn next">
             <i class="fas fa-chevron-right"></i>
         </button>    
+        <!-- <div id="music-list">
+            <div class="music-list"></div>
+        </div> -->
         <div class="main-sec">
             <div class="music-name">
                 <h3>
@@ -35,15 +43,19 @@
             </div>
             <div class="player-bar">
                 <div class="player-detail">
-                    <i class="fas fa-pause"></i>
+                    <i class="fas fa-play" id="play"></i>
                 </div>
                 <div class="player-detail volume">
+                    <i class="fas fa-volume-up" id="mute"></i>
                     <div id="volumeBar">
                         <div id="volume-progress"></div>
                     </div>
-                    <i class="fas fa-volume-up"></i>
                 </div>
-                <nobr><div class="player-detail">00:00 / 00:00</div></nobr>    
+                <nobr>
+                    <div class="player-detail">
+                        <span id="current-duration"></span> / <span id="full-duration"></span>
+                    </div>
+                </nobr>    
                 <!-- <i class="fas fa-play"></i> -->
                 <!-- <i class="fas fa-volume-mute"></i> -->
                 <div class="timeline">
@@ -55,6 +67,6 @@
         
     <script src="https://kit.fontawesome.com/3d8748b2f2.js" crossorigin="anonymous"></script>
     <script src="./assets/js/songList.js"></script>
-    <script src="/assets/js/script.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>

@@ -22,7 +22,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  padding: 50px 140px 90px 140px;
+  padding: 50px 60px 90px 60px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   position: relative;
@@ -36,12 +36,6 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-}
-
-@media only screen and (max-width: 910px) {
-  #wrapper {
-    padding: 50px 60px 90px 60px;
-  }
 }
 
 @media only screen and (max-width: 700px) {
@@ -96,6 +90,9 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @media only screen and (max-width: 700px) {
@@ -104,6 +101,9 @@ body {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
   }
 }
 
@@ -119,6 +119,19 @@ body {
 
 #wrapper > nav > ul > li:last-child {
   margin-right: 0px;
+}
+
+#wrapper > nav > ul > li > select {
+  outline: none;
+  background-color: #E94560;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+#wrapper > nav > ul > li > select > option {
+  background-color: #fff;
+  color: #E94560;
 }
 
 #wrapper .btn {
@@ -184,11 +197,16 @@ body {
 
 #wrapper .main-sec .player-bar .player-detail {
   margin-right: 20px;
-  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #wrapper .main-sec .player-bar .player-detail:hover #volumeBar {
-  height: 80px;
+  width: 80px;
   -webkit-transition: .2s;
   transition: .2s;
 }
@@ -198,14 +216,10 @@ body {
 }
 
 #wrapper .main-sec .player-bar .player-detail > #volumeBar {
-  height: 0px;
-  width: 10px;
+  height: 10px;
+  width: 0px;
   background-color: lightgray;
-  position: absolute;
-  top: 0;
-  left: 0;
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
+  margin-left: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -216,7 +230,7 @@ body {
 
 #wrapper .main-sec .player-bar .player-detail > #volumeBar > #volume-progress {
   width: 100%;
-  height: 70%;
+  height: 100%;
   background-color: #E94560;
 }
 
@@ -241,6 +255,5 @@ body {
 #wrapper .main-sec .player-bar .timeline .progress {
   height: 100%;
   background-color: #E94560;
-  width: 20%;
 }
 /*# sourceMappingURL=style.css.map */

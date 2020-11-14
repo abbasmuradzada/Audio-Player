@@ -15,15 +15,12 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    padding: 50px 140px 90px 140px;
+    padding: 50px 60px 90px 60px;
     box-sizing: border-box;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    @media only screen and (max-width: $break-point-1) {
-        padding: 50px 60px 90px 60px;
-    }
     @media only screen and (max-width: $break-point-2) {
         padding: 20px 30px 90px 20px;
     }
@@ -49,8 +46,10 @@ body{
         >ul{
             margin-left: auto;
             display: flex;
+            align-items: center;
             @media only screen and (max-width: $break-point-2) {
                 flex-direction: column;
+                align-items: flex-start;
             }
             >li{
                 @media only screen and (max-width: $break-point-1) {
@@ -59,6 +58,17 @@ body{
                 margin-right: 40px;
                 &:last-child{
                     margin-right: 0px;
+                }
+                >select{
+                    outline: none;
+                    background-color: $light-red;
+                    color: #fff;
+                    padding: 10px 15px;
+                    border-radius: 5px;
+                    >option{
+                        background-color: #fff;
+                        color: $light-red;
+                    }
                 }
             }
         }
@@ -85,6 +95,14 @@ body{
             right: 0px;
         }
     }
+    // #music-list{
+    //     width: 300px;
+    //     height: 200px;
+    //     background-color: black;
+    //     opacity: .3;
+    //     margin-left: auto;
+    //     margin-right: 100px;
+    // }
     .main-sec{
         .music-name{
             >h3{
@@ -103,27 +121,30 @@ body{
             }
             .player-detail{
                 margin-right: 20px;
-                position: relative;
+                // position: relative;
+                display: flex;
+                align-items: center;
                 &:hover #volumeBar{
-                    height: 80px;
+                    width: 80px;
                     transition: .2s;
                 }
                 >i{
                     font-size: 20px;
                 }
                 >#volumeBar{
-                    height: 0px;
-                    width: 10px;
+                    height: 10px;
+                    width: 0px;
                     background-color: lightgray;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    transform: translateY(-100%);
+                    margin-left: 5px;
+                    // position: absolute;
+                    // top: 0;
+                    // left: 0;
+                    // transform: translateY(-100%);
                     display: flex;
                     align-items: flex-end;
                     >#volume-progress{
                         width: 100%;
-                        height: 70%;
+                        height: 100%;
                         background-color: $light-red;
                     }
                 }
@@ -142,7 +163,6 @@ body{
                 .progress{
                     height: 100%;
                     background-color: $light-red;
-                    width: 20%;
                 }
             }
         }
