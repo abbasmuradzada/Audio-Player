@@ -5,13 +5,14 @@
 body{
     font-family: 'Poppins', sans-serif;
     color: #fff;
+    // background-color: #101b1d;
 }
 
 #wrapper{
     width: 100vw;
     height: 100vh;
     background-image: url("../images/bg.svg");
-    background-size: 100%, 100%;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     padding: 50px 140px 90px 140px;
@@ -20,9 +21,18 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @media only screen and (max-width: $break-point-1) {
+        padding: 50px 60px 90px 60px;
+    }
+    @media only screen and (max-width: $break-point-2) {
+        padding: 20px 30px 90px 20px;
+    }
     >nav{
         display: flex;
         align-items: center;
+        @media only screen and (max-width: $break-point-2) {
+            align-items: flex-start;
+        }
         #logo{
             display: flex;
             align-items: center;
@@ -39,7 +49,13 @@ body{
         >ul{
             margin-left: auto;
             display: flex;
+            @media only screen and (max-width: $break-point-2) {
+                flex-direction: column;
+            }
             >li{
+                @media only screen and (max-width: $break-point-1) {
+                    margin-bottom: 10px;
+                }
                 margin-right: 40px;
                 &:last-child{
                     margin-right: 0px;
@@ -72,13 +88,19 @@ body{
     .main-sec{
         .music-name{
             >h3{
-                @include font-style (40px, 50px, 500, #fff)
+                @include font-style (40px, 50px, 500, #fff);
+                @media only screen and (max-width: $break-point-2) {
+                    font-size: 35px;
+                }
             }
             margin-bottom: 30px;
         }
         .player-bar{
             display: flex;
             align-items: center;
+            @media only screen and (max-width: $break-point-2) {
+                flex-wrap: wrap;
+            }
             .player-detail{
                 margin-right: 20px;
                 position: relative;
@@ -107,6 +129,9 @@ body{
                 }
             }
             .timeline{
+                @media only screen and (max-width: $break-point-2) {
+                    margin-top: 20px;
+                }
                 height: 5px;
                 width: 100%;
                 background-color: #fff;

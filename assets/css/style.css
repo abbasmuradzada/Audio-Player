@@ -19,7 +19,7 @@ body {
   width: 100vw;
   height: 100vh;
   background-image: url("../images/bg.svg");
-  background-size: 100%, 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   padding: 50px 140px 90px 140px;
@@ -38,6 +38,18 @@ body {
           justify-content: space-between;
 }
 
+@media only screen and (max-width: 910px) {
+  #wrapper {
+    padding: 50px 60px 90px 60px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  #wrapper {
+    padding: 20px 30px 90px 20px;
+  }
+}
+
 #wrapper > nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -45,6 +57,14 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media only screen and (max-width: 700px) {
+  #wrapper > nav {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
 }
 
 #wrapper > nav #logo {
@@ -78,8 +98,23 @@ body {
   display: flex;
 }
 
+@media only screen and (max-width: 700px) {
+  #wrapper > nav > ul {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 #wrapper > nav > ul > li {
   margin-right: 40px;
+}
+
+@media only screen and (max-width: 910px) {
+  #wrapper > nav > ul > li {
+    margin-bottom: 10px;
+  }
 }
 
 #wrapper > nav > ul > li:last-child {
@@ -125,6 +160,12 @@ body {
   color: #fff;
 }
 
+@media only screen and (max-width: 700px) {
+  #wrapper .main-sec .music-name > h3 {
+    font-size: 35px;
+  }
+}
+
 #wrapper .main-sec .player-bar {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -132,6 +173,13 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media only screen and (max-width: 700px) {
+  #wrapper .main-sec .player-bar {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
 }
 
 #wrapper .main-sec .player-bar .player-detail {
@@ -176,6 +224,12 @@ body {
   height: 5px;
   width: 100%;
   background-color: #fff;
+}
+
+@media only screen and (max-width: 700px) {
+  #wrapper .main-sec .player-bar .timeline {
+    margin-top: 20px;
+  }
 }
 
 #wrapper .main-sec .player-bar .timeline:hover {
