@@ -1,0 +1,125 @@
+@import './reset';
+@import './variables';
+@import './mixins';
+
+body{
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+
+#wrapper{
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../images/bg.svg");
+    background-size: 100%, 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 50px 140px 90px 140px;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    >nav{
+        display: flex;
+        align-items: center;
+        #logo{
+            display: flex;
+            align-items: center;
+            #player-name{
+                @include font-style (25px, 33px, 600, #fff);
+                >span{
+                    font-weight: 300;
+                }
+            }
+            >img{
+                margin-right: 5px;
+            }
+        }
+        >ul{
+            margin-left: auto;
+            display: flex;
+            >li{
+                margin-right: 40px;
+                &:last-child{
+                    margin-right: 0px;
+                }
+            }
+        }
+    }
+    .btn{
+        width: 80px;
+        height: 80px;
+        outline: none;
+        border: none;
+        background-color: transparent;
+        color: white;
+        font-size: 50px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        &:hover{
+            background-color: $light-red;
+            transition: .2s;
+        }
+        &.prev{
+            left: 0px;
+        }
+        &.next{
+            right: 0px;
+        }
+    }
+    .main-sec{
+        .music-name{
+            >h3{
+                @include font-style (40px, 50px, 500, #fff)
+            }
+            margin-bottom: 30px;
+        }
+        .player-bar{
+            display: flex;
+            align-items: center;
+            .player-detail{
+                margin-right: 20px;
+                position: relative;
+                &:hover #volumeBar{
+                    height: 80px;
+                    transition: .2s;
+                }
+                >i{
+                    font-size: 20px;
+                }
+                >#volumeBar{
+                    height: 0px;
+                    width: 10px;
+                    background-color: lightgray;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    transform: translateY(-100%);
+                    display: flex;
+                    align-items: flex-end;
+                    >#volume-progress{
+                        width: 100%;
+                        height: 70%;
+                        background-color: $light-red;
+                    }
+                }
+            }
+            .timeline{
+                height: 5px;
+                width: 100%;
+                background-color: #fff;
+                &:hover{
+                    height: 15px;
+                    transition: .1s;
+                }
+                .progress{
+                    height: 100%;
+                    background-color: $light-red;
+                    width: 20%;
+                }
+            }
+        }
+    }
+}       
