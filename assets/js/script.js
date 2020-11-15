@@ -1,5 +1,6 @@
 const playBtn = document.getElementById('play');
 const muteBtn = document.getElementById('mute');
+const reload = document.getElementById('reload');
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
 const timeline = document.querySelector('.timeline');
@@ -10,16 +11,18 @@ const musicName = document.querySelector('.music-name h3');
 const currentDuration = document.getElementById('current-duration');
 const fullDuration = document.getElementById('full-duration');
 const playingAccording = document.querySelector("select");
+const musicRow = document.querySelector('.music-row');
 
 var audio = new Audio();
 var musicPosition = false;
-var activeIndex = -1;
+var activeIndex = 0;
 
 audio.muted = false;
 audio.volume = 1;
 audio.src = songList[0].url;
 
-// console.log();
+// console.dir(audio);
+// console.log(audio.duration);
 
 
 // Start / Stop Music
@@ -44,7 +47,11 @@ muteBtn.addEventListener('click', ()=>{
         audio.muted=false
         muteBtn.setAttribute("class", "fas fa-volume-up")
     }
-    console.log("test");
+})
+
+// Reload
+reload.addEventListener('click', () => {
+    audio.currentTime = 0;
 })
 
 // TimeLine and progress bar working
@@ -56,10 +63,10 @@ setInterval(() => {
     progresBar.style.width= audio.currentTime / audio.duration *100 + '%';
 }, 100);
 
+
 //Volume Bar
 volumeBar.addEventListener('click', (event) => {
     const volumeWidth = window.getComputedStyle(volumeBar).width;
-    console.log(event.offsetX/parseInt(volumeWidth));
     audio.volume=event.offsetX/parseInt(volumeWidth);
     volumeProgres.style.width= audio.volume *100 + '%';
 })
@@ -85,11 +92,15 @@ var nextMusic = function(){
         audio.src=songList[activeIndex].url;
         musicName.innerText=songList[activeIndex].name
     }
-    // fullDuration.innerText=audio.duration;
+    document.querySelectorAll('.music-row i').forEach((element) => {
+        element.setAttribute("class", "far fa-play-circle");
+        musicPosition=true;
+    }); 
+    document.querySelectorAll('.music-row i')[activeIndex].setAttribute('class', 'far fa-pause-circle');
+
     if (musicPosition) {
         audio.play();            
     }
-
 }
 // Next Music            
 next.addEventListener('click', ()=>{
@@ -106,18 +117,57 @@ prev.addEventListener('click',()=>{
         audio.src=songList[activeIndex].url;
         musicName.innerText=songList[activeIndex].name
     }
+    document.querySelectorAll('.music-row i').forEach((element) => {
+        element.setAttribute("class", "far fa-play-circle");
+        musicPosition=true;
+    }); 
+    document.querySelectorAll('.music-row i')[activeIndex].setAttribute('class', 'far fa-pause-circle');
     // fullDuration.innerText=audio.duration;
     if (musicPosition) {
         audio.play();            
     }
 })
 
-// Refresh current time of music
+// Refresh current and full time of music
 setInterval(() => {
-    currentDuration.innerText = `${ Math.floor(audio.currentTime/60) } : ${Math.floor(audio.currentTime)%60}`;
+    currentDuration.innerText = `${ Math.floor(audio.currentTime/60) } : ${Math.floor(audio.currentTime)%60} `;
+    fullDuration.innerText = ` ${ Math.floor(audio.duration/60) } : ${Math.floor(audio.duration)%60}`;
     if (audio.ended) {
         nextMusic();
     }
 }, 500);
+
+
+
+songList.map(element => {
+    var musicRow = document.createElement('div');
+    musicRow.classList.add('music-row');
+    musicRow.setAttribute("data-url", element.url);
+    var i = document.createElement('i');
+    i.setAttribute("class", "far fa-play-circle")
+    musicRow.appendChild(i)
+    var name = document.createElement('span');
+    if (element.name.length < 35) {
+        name.innerText=element.name    
+    }else{
+        name.innerText=element.name.substr(0, 35) + "...";
+    }
+    musicRow.appendChild(name);
+    document.getElementById("music-list").append(musicRow);
+})
+
+document.querySelectorAll('.music-row').forEach((element,index) => {
+    element.addEventListener('click', ()=>{
+        document.querySelectorAll('.music-row i').forEach(element => {
+            element.setAttribute("class", "far fa-play-circle");
+        });
+        audio.src=element.getAttribute('data-url');
+        audio.play();
+        activeIndex=index;
+        musicName.innerText=songList[activeIndex].name;
+        playBtn.setAttribute("class", "fas fa-pause");
+        element.querySelector('i').setAttribute("class", "far fa-pause-circle")
+    })
+});
 
 

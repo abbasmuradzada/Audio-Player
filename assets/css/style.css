@@ -18,6 +18,7 @@ body {
 #wrapper {
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
   background-image: url("../images/bg.svg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -162,12 +163,74 @@ body {
   right: 0px;
 }
 
+#wrapper #music-list {
+  width: 350px;
+  max-height: 150px;
+  overflow-y: scroll;
+  background-color: rgba(0, 0, 0, 0.8);
+  margin-left: auto;
+  margin-right: 100px;
+  padding: 20px;
+  border-bottom-left-radius: 16px;
+  border-top-left-radius: 16px;
+}
+
+#wrapper #music-list::-webkit-scrollbar {
+  width: 0.4em;
+}
+
+#wrapper #music-list::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+          box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+#wrapper #music-list::-webkit-scrollbar-thumb {
+  background-color: #E94560;
+}
+
+@media only screen and (max-width: 700px) {
+  #wrapper #music-list {
+    width: 90vw;
+    padding: 0px;
+    margin: 0;
+    -webkit-transform: translateY(-60px);
+            transform: translateY(-60px);
+  }
+}
+
+#wrapper #music-list .music-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#wrapper #music-list .music-row:hover {
+  background-color: #E94560;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+#wrapper #music-list .music-row > i {
+  font-size: 24px;
+  margin-right: 5px;
+}
+
+#wrapper #music-list .music-row > span {
+  font-size: 16px;
+}
+
 #wrapper .main-sec .music-name {
   margin-bottom: 30px;
 }
 
 #wrapper .main-sec .music-name > h3 {
-  font-size: 40px;
+  font-size: 35px;
   line-height: 50px;
   font-weight: 500;
   color: #fff;

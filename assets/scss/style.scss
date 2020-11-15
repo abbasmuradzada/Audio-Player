@@ -11,6 +11,7 @@ body{
 #wrapper{
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
     background-image: url("../images/bg.svg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -95,18 +96,54 @@ body{
             right: 0px;
         }
     }
-    // #music-list{
-    //     width: 300px;
-    //     height: 200px;
-    //     background-color: black;
-    //     opacity: .3;
-    //     margin-left: auto;
-    //     margin-right: 100px;
-    // }
+    #music-list{
+        width: 350px;
+        max-height: 150px;
+        overflow-y: scroll;
+        background-color: rgba($color: #000000, $alpha: .8);
+        margin-left: auto;
+        margin-right: 100px;
+        padding: 20px;
+        border-bottom-left-radius: 16px;
+        border-top-left-radius: 16px;
+        &::-webkit-scrollbar {
+            width: 0.4em;
+        }
+        &::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: $light-red;
+        }
+        @media only screen and (max-width: $break-point-2) {
+            width: 90vw;
+            padding: 0px;
+            margin: 0;
+            transform: translateY(-60px);
+        }
+        .music-row{
+            display: flex;
+            align-items: center;
+            padding: 10px 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            &:hover{
+                background-color: $light-red;
+                transition: .2s;
+            }
+            >i{
+                font-size: 24px;
+                margin-right: 5px;
+            }
+            >span{
+                font-size: 16px;
+            }
+        }
+    }
     .main-sec{
         .music-name{
             >h3{
-                @include font-style (40px, 50px, 500, #fff);
+                @include font-style (35px, 50px, 500, #fff);
                 @media only screen and (max-width: $break-point-2) {
                     font-size: 35px;
                 }

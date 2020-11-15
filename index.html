@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Music Fan</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -16,8 +16,6 @@
                 <h1 id="player-name">Music<span>Fan</span></h1>
             </div>
             <ul>
-                <li>Play List</li>
-                <li>Favorite</li>
                 <li>
                     <select class="select" name="" id="">
                         <option value="next play">Next Play</option>
@@ -32,15 +30,17 @@
         <button class="btn next">
             <i class="fas fa-chevron-right"></i>
         </button>    
-        <!-- <div id="music-list">
-            <div class="music-list"></div>
-        </div> -->
+        <div id="music-list">
+            
+        </div>
         <div class="main-sec">
-            <div class="music-name">
-                <h3>
-                    Eminem - Lose Yourself
-                </h3>
-            </div>
+            <!-- <nobr> -->
+                <div class="music-name">
+                    <h3>
+                        Eminem - Lose Yourself
+                    </h3>
+                </div>
+            <!-- </nobr> -->
             <div class="player-bar">
                 <div class="player-detail">
                     <i class="fas fa-play" id="play"></i>
@@ -51,9 +51,12 @@
                         <div id="volume-progress"></div>
                     </div>
                 </div>
+                <div class="player-detail">
+                    <i class="fas fa-sync-alt" id="reload"></i>
+                </div>
                 <nobr>
                     <div class="player-detail">
-                        <span id="current-duration"></span> / <span id="full-duration"></span>
+                        <span id="current-duration"></span>/<span id="full-duration"></span>
                     </div>
                 </nobr>    
                 <!-- <i class="fas fa-play"></i> -->
